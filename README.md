@@ -21,7 +21,7 @@ lib/
 ├── router/                 
 │   └── 
 ├── widgets/               
-│   ├── 
+│   ├── nav_bar.dart
 │   ├── 
 │   └── 
 ├── screens/                
