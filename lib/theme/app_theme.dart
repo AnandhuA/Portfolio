@@ -2,43 +2,38 @@ import 'package:flutter/material.dart';
 import '../constants/app_colors.dart';
 
 class AppTheme {
-  static ThemeData lightTheme = ThemeData(
+  static ThemeData theme = ThemeData(
+    fontFamily: 'OpenSans',
     brightness: Brightness.light,
-    primaryColor: AppColors.primary,
-    scaffoldBackgroundColor: AppColors.scaffoldBg,
-    appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.primary,
-      foregroundColor: Colors.white,
-      elevation: 0,
-    ),
-    textTheme: const TextTheme(
-      bodyLarge: TextStyle(fontSize: 16, color: AppColors.textPrimary),
-      bodyMedium: TextStyle(fontSize: 14, color: AppColors.textSecondary),
-      titleLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-    ),
-    colorScheme: ColorScheme.fromSwatch().copyWith(
-      secondary: AppColors.secondary,
-      error: AppColors.error,
-    ),
-  );
+    primaryColor: AppColors.black,
+    scaffoldBackgroundColor: AppColors.white,
 
-  static ThemeData darkTheme = ThemeData(
-    brightness: Brightness.dark,
-    primaryColor: AppColors.primaryDark,
-    scaffoldBackgroundColor: AppColors.darkScaffoldBg,
     appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.primaryDark,
-      foregroundColor: Colors.white,
+      backgroundColor: AppColors.black,
+      foregroundColor: AppColors.white,
       elevation: 0,
     ),
+
     textTheme: const TextTheme(
-      bodyLarge: TextStyle(fontSize: 16, color: Colors.white),
-      bodyMedium: TextStyle(fontSize: 14, color: AppColors.grey300),
-      titleLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      bodyLarge: TextStyle(fontSize: 16, color: AppColors.black),
+      bodyMedium: TextStyle(fontSize: 14, color: AppColors.gray),
+      titleLarge: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        color: AppColors.black,
+      ),
     ),
-    colorScheme: ColorScheme.dark().copyWith(
-      secondary: AppColors.secondary,
-      error: AppColors.error,
+
+    colorScheme: const ColorScheme(
+      brightness: Brightness.light,
+      primary: AppColors.black,
+      onPrimary: AppColors.white,
+      secondary: AppColors.mediumGray,
+      onSecondary: AppColors.white,
+      error: Colors.red,
+      onError: Colors.white,
+      surface: AppColors.white,
+      onSurface: AppColors.black,
     ),
   );
 }

@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
+  rive: ^0.13.20
+  url_launcher: ^6.3.2
 
 dev_dependencies:
   flutter_test:
@@ -30,5 +32,32 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/animations/
+    - assets/rive/
+    - assets/fonts/Fira_Code/
+    - assets/fonts/Open_Sans/
 
- 
+  fonts:
+    - family: FiraCode
+      fonts:
+        - asset: assets/fonts/Fira_Code/static/FiraCode-Regular.ttf
+        - asset: assets/fonts/Fira_Code/static/FiraCode-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Fira_Code/static/FiraCode-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Fira_Code/static/FiraCode-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Fira_Code/static/FiraCode-Light.ttf
+          weight: 300
+
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/Open_Sans/static/OpenSans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Open_Sans/static/OpenSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Open_Sans/static/OpenSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Open_Sans/static/OpenSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Open_Sans/static/OpenSans-Bold.ttf
+          weight: 700

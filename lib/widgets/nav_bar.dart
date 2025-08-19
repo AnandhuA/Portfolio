@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/constants/app_spacing.dart';
+import 'package:portfolio/constants/app_colors.dart';
 
 class NavBar extends StatelessWidget {
   final void Function(String route)? onItemSelected;
@@ -12,39 +12,25 @@ class NavBar extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Logo
-          Text(
-            'Anandhu',
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-              fontWeight: FontWeight.bold,
-              fontSize: AppSpacing.font3xl,
-              color: Colors.black,
-            ),
+          _NavItem(
+            title: 'Home',
+            route: 'home',
+            currentRoute: activeRoute,
+            onTap: onItemSelected,
           ),
-          AppSpacing.wBox16,
-          // Nav Items
-          Row(
-            children: [
-              _NavItem(
-                title: 'Home',
-                route: 'home',
-                currentRoute: activeRoute,
-                onTap: onItemSelected,
-              ),
-              _NavItem(
-                title: 'Project',
-                route: 'project',
-                currentRoute: activeRoute,
-                onTap: onItemSelected,
-              ),
-              _NavItem(
-                title: 'Contact',
-                route: 'contact',
-                currentRoute: activeRoute,
-                onTap: onItemSelected,
-              ),
-            ],
+          _NavItem(
+            title: 'Project',
+            route: 'project',
+            currentRoute: activeRoute,
+            onTap: onItemSelected,
+          ),
+          _NavItem(
+            title: 'Contact',
+            route: 'contact',
+            currentRoute: activeRoute,
+            onTap: onItemSelected,
           ),
         ],
       ),
@@ -80,7 +66,7 @@ class _NavItem extends StatelessWidget {
             AnimatedDefaultTextStyle(
               duration: const Duration(milliseconds: 300),
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                color: isActive ? Colors.blue : Colors.black87,
+                color: isActive ? AppColors.white : AppColors.gray,
                 fontWeight: isActive ? FontWeight.bold : FontWeight.w500,
               ),
               child: Text(title),
@@ -92,7 +78,7 @@ class _NavItem extends StatelessWidget {
               width: isActive ? 30 : 0,
               curve: Curves.easeInOut,
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: AppColors.white,
                 borderRadius: BorderRadius.circular(1),
               ),
             ),

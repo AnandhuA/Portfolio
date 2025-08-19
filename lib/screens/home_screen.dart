@@ -1,142 +1,137 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/widgets/nav_bar.dart';
+import 'package:portfolio/constants/app_colors.dart';
+import 'package:portfolio/widgets/custom_button.dart';
+import 'package:portfolio/widgets/custom_icon_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  final GlobalKey homeKey = GlobalKey();
-  final GlobalKey projectKey = GlobalKey();
-  final GlobalKey contactKey = GlobalKey();
-
-  final ScrollController _scrollController = ScrollController();
-
-  String _currentSection = 'home';
-
-  @override
-  void initState() {
-    super.initState();
-    _scrollController.addListener(_onScroll);
-  }
-
-  @override
-  void dispose() {
-    _scrollController.removeListener(_onScroll);
-    _scrollController.dispose();
-    super.dispose();
-  }
-
-  void _onScroll() {
-    // final homePos = _getOffset(homeKey);
-    final projectPos = _getOffset(projectKey);
-    final contactPos = _getOffset(contactKey);
-    final scrollOffset = _scrollController.offset;
-
-    const double threshold = -200;
-
-    String newSection = _currentSection;
-
-    if (scrollOffset >= contactPos - threshold) {
-      newSection = 'contact';
-    } else if (scrollOffset >= projectPos - threshold) {
-      newSection = 'project';
-    } else {
-      newSection = 'home';
-    }
-
-    if (newSection != _currentSection) {
-      setState(() {
-        _currentSection = newSection;
-      });
-    }
-  }
-
-  double _getOffset(GlobalKey key) {
-    final ctx = key.currentContext;
-    if (ctx == null) return 0;
-    final box = ctx.findRenderObject() as RenderBox;
-    return box
-        .localToGlobal(Offset.zero, ancestor: context.findRenderObject())
-        .dy;
-  }
-
-  void scrollToSection(String section) {
-    final key = _getKeyForSection(section);
-    final ctx = key?.currentContext;
-
-    if (ctx != null) {
-      Scrollable.ensureVisible(
-        ctx,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
-    }
-  }
-
-  GlobalKey? _getKeyForSection(String section) {
-    switch (section) {
-      case 'home':
-        return homeKey;
-      case 'project':
-        return projectKey;
-      case 'contact':
-        return contactKey;
-      default:
-        return null;
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          NavBar(
-            activeRoute: _currentSection,
-            onItemSelected: (route) {
-              scrollToSection(route);
-            },
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              controller: _scrollController,
-              child: Column(
+    return Column(
+      children: [
+        //---------- title --------------
+        Row(
+          children: [
+            Text(
+              "Flutter",
+              style: TextStyle(
+                fontSize: 100,
+                fontFamily: "FiraCode",
+                fontWeight: FontWeight.w500,
+                color: AppColors.white,
+              ),
+            ),
+            Spacer(),
+            CustomButton(
+              onTap: () {},
+              title: "Projects",
+              width: 200,
+              height: 55,
+            ),
+            SizedBox(width: 10),
+            CircleAvatar(
+              radius: 25,
+              backgroundColor: AppColors.white,
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.arrow_forward, color: AppColors.mediumGray),
+              ),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            RichText(
+              text: TextSpan(
+                style: const TextStyle(
+                  fontSize: 22,
+                  color: AppColors.mediumGray,
+                ),
                 children: [
-                  Container(
-                    margin: EdgeInsets.all(20),
-                    key: homeKey,
-                    height: 500,
-                    width: double.infinity,
-                    color: Colors.amber,
-                    child: const Center(child: Text("Home")),
+                  const TextSpan(text: "My goal is to "),
+                  TextSpan(
+                    text: "write maintainable, clean",
+                    style: const TextStyle(
+                      color: AppColors.gray,
+                      fontStyle: FontStyle.italic,
+                    ),
                   ),
-                  Container(
-                    margin: EdgeInsets.all(20),
-                    key: projectKey,
-                    height: 700,
-                    width: double.infinity,
-                    color: Colors.purple,
-                    child: const Center(child: Text("Project")),
+                  const TextSpan(text: "\nand "),
+                  TextSpan(
+                    text: "understandable code",
+                    style: const TextStyle(
+                      color: AppColors.gray,
+                      fontStyle: FontStyle.italic,
+                    ),
                   ),
-                  Container(
-                    margin: EdgeInsets.all(20),
-                    key: contactKey,
-                    height: 500,
-                    width: double.infinity,
-                    color: Colors.green,
-                    child: const Center(child: Text("Contact")),
+                  const TextSpan(
+                    text: " to process\ndevelopment was enjoyable",
                   ),
-                  Container(height: 100),
                 ],
               ),
             ),
+            Spacer(),
+            Text(
+              "Developer",
+              style: TextStyle(
+                fontSize: 100,
+                fontFamily: "FiraCode",
+                fontWeight: FontWeight.w500,
+                color: AppColors.white,
+              ),
+            ),
+          ],
+        ),
+
+        SizedBox(height: 20),
+        //---------------------------------
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 80),
+          child: Row(
+            spacing: 60,
+            children: [
+              CustomIconButton(
+                onTap: () {
+                  openLink('https://github.com/AnandhuA');
+                },
+                title: "GitHub",
+                iconPath: "assets/icons/github_icon.png",
+              ),
+              CustomIconButton(
+                onTap: () {},
+                title: "LinkedIn",
+                iconPath: "assets/icons/linkedin_icon.png",
+              ),
+              Spacer(),
+              CustomIconButton(
+                onTap: () {},
+                title: "Gmail",
+                iconPath: "assets/icons/email_icon.png",
+              ),
+              Spacer(),
+              CustomIconButton(
+                onTap: () {},
+                title: "Instagram",
+                iconPath: "assets/icons/insta_icon.png",
+              ),
+              CustomIconButton(
+                onTap: () {},
+                title: "Facebook",
+                iconPath: "assets/icons/facebook_icon.png",
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
+  }
+}
+
+Future<void> openLink(String url) async {
+  final uri = Uri.parse(url);
+  if (!await launchUrl(uri, webOnlyWindowName: '_blank')) {
+    throw Exception('Could not launch $url');
   }
 }
