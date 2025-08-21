@@ -111,6 +111,7 @@ class _MainScreenState extends State<MainScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(50),
                 child: Column(
+                  spacing: 20,
                   children: [
                     HomeScreen(key: homeKey),
                     ProjectScreen(key: projectKey),

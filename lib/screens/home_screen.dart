@@ -27,16 +27,16 @@ class HomeScreen extends StatelessWidget {
             CustomButton(
               onTap: () {},
               title: "Projects",
-              width: 200,
+              width: 250,
               height: 55,
             ),
             SizedBox(width: 10),
-            CircleAvatar(
-              radius: 25,
-              backgroundColor: AppColors.white,
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.arrow_forward, color: AppColors.mediumGray),
+            GestureDetector(
+              child: CircleAvatar(
+                radius: 25,
+                backgroundColor: AppColors.white,
+                child: Icon(Icons.arrow_forward, color: AppColors.mediumGray),
+                
               ),
             ),
           ],
@@ -86,7 +86,7 @@ class HomeScreen extends StatelessWidget {
         ),
 
         SizedBox(height: 20),
-        //---------------------------------
+        //----icon buttons  -----------------------
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 80),
           child: Row(
@@ -100,30 +100,39 @@ class HomeScreen extends StatelessWidget {
                 iconPath: "assets/icons/github_icon.png",
               ),
               CustomIconButton(
-                onTap: () {},
+                onTap: () {
+                  openLink('https://www.linkedin.com/in/anandhuav');
+                },
                 title: "LinkedIn",
                 iconPath: "assets/icons/linkedin_icon.png",
               ),
               Spacer(),
               CustomIconButton(
-                onTap: () {},
+                onTap: () {
+                  openLink('mailto:anandhu1407@gmail.com');
+                },
                 title: "Gmail",
                 iconPath: "assets/icons/email_icon.png",
               ),
               Spacer(),
               CustomIconButton(
-                onTap: () {},
+                onTap: () {
+                  openLink('https://www.instagram.com/');
+                },
                 title: "Instagram",
                 iconPath: "assets/icons/insta_icon.png",
               ),
               CustomIconButton(
-                onTap: () {},
+                onTap: () {
+                  openLink('https://www.facebook.com/');
+                },
                 title: "Facebook",
                 iconPath: "assets/icons/facebook_icon.png",
               ),
             ],
           ),
         ),
+
       ],
     );
   }

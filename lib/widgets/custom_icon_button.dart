@@ -27,24 +27,30 @@ class CustomIconButton extends StatelessWidget {
           ),
           child: TextButton.icon(
             onPressed: onTap,
-            label: Text(
-              title,
-              style: TextStyle(
-                color: isHovered ? AppColors.black : AppColors.gray,
-                fontStyle: FontStyle.italic,
+            label: Padding(
+              padding: EdgeInsetsGeometry.only(top: 10, right: 10, bottom: 10),
+              child: Text(
+                title,
+                style: TextStyle(
+                  color: isHovered ? AppColors.black : AppColors.gray,
+                  fontStyle: FontStyle.italic,
+                ),
               ),
             ),
-            icon: SizedBox(
-              width: 20,
-              height: 20,
-              child: Image.asset(
-                iconPath,
-                color: isHovered ? AppColors.black : AppColors.white,
+            icon: Padding(
+              padding: const EdgeInsets.only(left: 10, bottom: 10, top: 10),
+              child: SizedBox(
+                width: 20,
+                height: 20,
+                child: Image.asset(
+                  iconPath,
+                  color: isHovered ? AppColors.black : AppColors.white,
+                ),
               ),
             ),
 
             style: TextButton.styleFrom(
-              minimumSize: Size(80, 50),
+              minimumSize: Size(85, 55),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
                 side: BorderSide(color: AppColors.mediumGray),

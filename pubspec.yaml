@@ -13,6 +13,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   rive: ^0.13.20
   url_launcher: ^6.3.2
+  carousel_slider: ^5.1.1
 
 dev_dependencies:
   flutter_test:
@@ -31,7 +32,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
-    - assets/animations/
+    # - assets/animations/
     - assets/rive/
     - assets/fonts/Fira_Code/
     - assets/fonts/Open_Sans/
