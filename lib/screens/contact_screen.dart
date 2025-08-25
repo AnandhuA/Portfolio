@@ -5,6 +5,10 @@ class ContactScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("contact"));
+    return Container(
+      height: 1000,
+      color: Colors.white,
+      child: Center(child: Text("contact")),
+    );
   }
 }

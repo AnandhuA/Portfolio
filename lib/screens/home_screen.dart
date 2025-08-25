@@ -9,130 +9,139 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        //---------- title --------------
-        Row(
-          children: [
-            Text(
-              "Flutter",
-              style: TextStyle(
-                fontSize: 100,
-                fontFamily: "FiraCode",
-                fontWeight: FontWeight.w500,
-                color: AppColors.white,
-              ),
-            ),
-            Spacer(),
-            CustomButton(
-              onTap: () {},
-              title: "Projects",
-              width: 250,
-              height: 55,
-            ),
-            SizedBox(width: 10),
-            GestureDetector(
-              child: CircleAvatar(
-                radius: 25,
-                backgroundColor: AppColors.white,
-                child: Icon(Icons.arrow_forward, color: AppColors.mediumGray),
-                
-              ),
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            RichText(
-              text: TextSpan(
-                style: const TextStyle(
-                  fontSize: 22,
-                  color: AppColors.mediumGray,
-                ),
+        // const IgnorePointer(child: SizedBox.expand(child: VideoBackground())),
+        Padding(
+          padding: const EdgeInsets.only(right: 50,left: 50,top: 100),
+          child: Column(
+            children: [
+              //---------- title --------------
+              Row(
                 children: [
-                  const TextSpan(text: "My goal is to "),
-                  TextSpan(
-                    text: "write maintainable, clean",
-                    style: const TextStyle(
-                      color: AppColors.gray,
-                      fontStyle: FontStyle.italic,
+                  Text(
+                    "Flutter",
+                    style: TextStyle(
+                      fontSize: 100,
+                      fontFamily: "FiraCode",
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.white,
                     ),
                   ),
-                  const TextSpan(text: "\nand "),
-                  TextSpan(
-                    text: "understandable code",
-                    style: const TextStyle(
-                      color: AppColors.gray,
-                      fontStyle: FontStyle.italic,
-                    ),
+                  Spacer(),
+                  CustomButton(
+                    onTap: () {},
+                    title: "Projects",
+                    width: 250,
+                    height: 55,
                   ),
-                  const TextSpan(
-                    text: " to process\ndevelopment was enjoyable",
+                  SizedBox(width: 10),
+                  GestureDetector(
+                    child: CircleAvatar(
+                      radius: 25,
+                      backgroundColor: AppColors.white,
+                      child: Icon(
+                        Icons.arrow_forward,
+                        color: AppColors.mediumGray,
+                      ),
+                    ),
                   ),
                 ],
               ),
-            ),
-            Spacer(),
-            Text(
-              "Developer",
-              style: TextStyle(
-                fontSize: 100,
-                fontFamily: "FiraCode",
-                fontWeight: FontWeight.w500,
-                color: AppColors.white,
+              Row(
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      style: const TextStyle(
+                        fontSize: 22,
+                        color: AppColors.mediumGray,
+                      ),
+                      children: [
+                        const TextSpan(text: "My goal is to "),
+                        TextSpan(
+                          text: "write maintainable, clean",
+                          style: const TextStyle(
+                            color: AppColors.gray,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                        const TextSpan(text: "\nand "),
+                        TextSpan(
+                          text: "understandable code",
+                          style: const TextStyle(
+                            color: AppColors.gray,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                        const TextSpan(
+                          text: " to process\ndevelopment was enjoyable",
+                        ),
+                      ],
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    "Developer",
+                    style: TextStyle(
+                      fontSize: 100,
+                      fontFamily: "FiraCode",
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.white,
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
-        ),
 
-        SizedBox(height: 20),
-        //----icon buttons  -----------------------
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 80),
-          child: Row(
-            spacing: 60,
-            children: [
-              CustomIconButton(
-                onTap: () {
-                  openLink('https://github.com/AnandhuA');
-                },
-                title: "GitHub",
-                iconPath: "assets/icons/github_icon.png",
-              ),
-              CustomIconButton(
-                onTap: () {
-                  openLink('https://www.linkedin.com/in/anandhuav');
-                },
-                title: "LinkedIn",
-                iconPath: "assets/icons/linkedin_icon.png",
-              ),
-              Spacer(),
-              CustomIconButton(
-                onTap: () {
-                  openLink('mailto:anandhu1407@gmail.com');
-                },
-                title: "Gmail",
-                iconPath: "assets/icons/email_icon.png",
-              ),
-              Spacer(),
-              CustomIconButton(
-                onTap: () {
-                  openLink('https://www.instagram.com/');
-                },
-                title: "Instagram",
-                iconPath: "assets/icons/insta_icon.png",
-              ),
-              CustomIconButton(
-                onTap: () {
-                  openLink('https://www.facebook.com/');
-                },
-                title: "Facebook",
-                iconPath: "assets/icons/facebook_icon.png",
+              SizedBox(height: 20),
+              //----icon buttons  -----------------------
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 80),
+                child: Row(
+                  spacing: 60,
+                  children: [
+                    CustomIconButton(
+                      onTap: () {
+                        openLink('https://github.com/AnandhuA');
+                      },
+                      title: "GitHub",
+                      iconPath: "assets/icons/github_icon.png",
+                    ),
+                    CustomIconButton(
+                      onTap: () {
+                        openLink('https://www.linkedin.com/in/anandhuav');
+                      },
+                      title: "LinkedIn",
+                      iconPath: "assets/icons/linkedin_icon.png",
+                    ),
+                    Spacer(),
+                    CustomIconButton(
+                      onTap: () {
+                        openLink('mailto:anandhu1407@gmail.com');
+                      },
+                      title: "Gmail",
+                      iconPath: "assets/icons/email_icon.png",
+                    ),
+                    Spacer(),
+                    CustomIconButton(
+                      onTap: () {
+                        openLink('https://www.instagram.com/');
+                      },
+                      title: "Instagram",
+                      iconPath: "assets/icons/insta_icon.png",
+                    ),
+                    CustomIconButton(
+                      onTap: () {
+                        openLink('https://www.facebook.com/');
+                      },
+                      title: "Facebook",
+                      iconPath: "assets/icons/facebook_icon.png",
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
         ),
-
       ],
     );
   }
